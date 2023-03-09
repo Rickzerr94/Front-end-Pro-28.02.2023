@@ -32,7 +32,7 @@ let fourNumber;
             break;
     };
 
-let result = firstNumber*secondNumber*thirdNumber*fourNumber;
+const result = firstNumber*secondNumber*thirdNumber*fourNumber;
     if (result % 2 != 0){
         console.log('Your never seen this');
     } else{
