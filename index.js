@@ -48,6 +48,10 @@ for(let i = 100; i <= 300; i++) {
 
 const num4 = parseInt(prompt('Enter number!'));
 
-if(num4 % 1 === 0 && num4 % num4 === 0){
-    alert('try num');
-} else(alert('not try num'));
+let item = 0;
+for(let i = 2; i <= num4; i++) {
+    if(num4 % i === 0){
+        item += 1;
+    };
+};
+console.log(item === 1 ? 'try number' : 'not a try number');
