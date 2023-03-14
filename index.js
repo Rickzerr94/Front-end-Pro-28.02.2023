@@ -4,7 +4,7 @@ const firstNumber = parseInt(prompt('enter first number')) || 0;
 const secondNumber = parseInt(prompt('enter second number')) || 22;
 
 let thirdNumber;
-    if(firstNumber && secondNumber > 0){
+    if(firstNumber && secondNumber){
         thirdNumber = 80;
     } else{
         thirdNumber = 40;
@@ -33,7 +33,7 @@ let fourNumber;
     };
 
 const result = firstNumber*secondNumber*thirdNumber*fourNumber;
-    if (result % 2 != 0){
+    if (result % 2 !== 0){
         console.log('Your never seen this');
     } else{
         if(secondNumber > 50){
