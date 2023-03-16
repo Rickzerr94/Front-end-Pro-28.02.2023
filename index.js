@@ -1,6 +1,7 @@
 let num1 = '';
 for(let i = 10; i <= 20; i++){
-    num1 += i + ',';
+    // num1 += i + ',';
+    i === 20 ? num1 += i : num1 += i + ',';
 };
 console.log(num1);
 
@@ -8,7 +9,8 @@ console.log(num1);
 
 let num2 = '';
 for(let y = 10; y <= 20; y++){
-    num2 += Math.pow(y, 2) + ','
+    // num2 += Math.pow(y, 2) + ',';
+    y === 20 ? num2 += Math.pow(y, 2) : num2 += Math.pow(y, 2) + ',';
 };
 console.log(num2);
 
@@ -33,8 +35,7 @@ console.log(sum/count);
 /////////
  let result = 0;
 for(let z = 30; z <= 80; z++){
-    if(z % 2 !== 0) continue;
-    result += z;
+    if(z % 2 === 0) result += z;
     console.log(result);
 };
 
@@ -57,16 +58,16 @@ for(let i = 100; i <= 300; i++) {
 // };
 // console.log(item === 1) ? 'try number' : 'not a try number');
 
-const number = parseInt(prompt('Enter a positive number'));
-let isPrime = true;
-if(number === 1){
-    alert('Please, enter number biggest, than 1')
-} else if(number > 1){
-    for(let i =2; i < number; i++){
-        if(number % i === 0){
-            isPrime = false;
-            break;
-        }
-    }
-    isPrime ? alert(`${number} is a prime number`) : alert(`${number} is a not prime number`);
-};
+// const number = parseInt(prompt('Enter a positive number'));
+// let isPrime = true;
+// if(number === 1){
+//     alert('Please, enter number biggest, than 1')
+// } else if(number > 1){
+//     for(let i =2; i < number; i++){
+//         if(number % i === 0){
+//             isPrime = false;
+//             break;
+//         }
+//     }
+//     isPrime ? alert(`${number} is a prime number`) : alert(`${number} is a not prime number`);
+// };
