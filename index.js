@@ -31,10 +31,11 @@ for(let i = 1; i <= 500; i++) {
 console.log(sum/count);
 
 /////////
-
+ let result = 0;
 for(let z = 30; z <= 80; z++){
     if(z % 2 !== 0) continue;
-    console.log(z);
+    result += z;
+    console.log(result);
 };
 
 /////////
