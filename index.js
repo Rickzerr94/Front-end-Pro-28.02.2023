@@ -89,3 +89,15 @@
 // // alert( countries.sort( (a, b) => a > b ? 1 : -1) );
 //
 // alert( countries.sort( (a, b) => b.localeCompare(a) ) );
+
+// let names = 'Вася, Петя, Маша';
+//
+// let arr = names.split(', ');
+//
+// for (let name of arr) {
+//     alert( `A message to ${name}.` );
+// }
+
+let arr = 'Вася, Петя, Маша, Іван'.split(', ', 3);
+
+alert(arr);
