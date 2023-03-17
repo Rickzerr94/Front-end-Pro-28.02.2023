@@ -1,3 +1,64 @@
+let arr = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+
+let sum = 0;
+for(let i = 0; i < arr.length; i++){
+    sum += arr[i];
+}
+console.log(sum);
+let positiveNumber = arr.filter(function (number){
+    return number > 0
+});
+console.log (positiveNumber);
+console.log(positiveNumber.length);
+
+////
+
+let minValue = arr [0];
+for(let i = 0; i < arr.length; i++){
+    if(arr[i] <= minValue){
+        minValue = arr[0]
+    };
+};
+console.log(minValue);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let fruits = ['apples','pear','banana'];
 // let shoppingCart = fruits;
 // shoppingCart.push('oranges');
@@ -98,6 +159,34 @@
 //     alert( `A message to ${name}.` );
 // }
 
-let arr = 'Вася, Петя, Маша, Іван'.split(', ', 3);
+// let arr = 'Вася, Петя, Маша, Іван'.split(', ', 3);
+//
+// alert(arr);
 
-alert(arr);
+// function camelize(str){
+//     return str
+//         .split('-')
+//         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
+//         .join('');
+//
+// }
+
+// function filterRange (arr, a, b){
+//     return arr.filter(item => (a <= item && item <= b));
+// }
+// let arr = [5,3,8,1];
+// let filtered = filterRange(arr, 1, 4);
+// alert(filtered);
+// alert(arr);
+
+// let arr = [5,1,2,-10,8];
+// arr.sort((a, b) => b - a);
+// alert(arr);
+
+// function copySorted(arr){
+//     return arr.slice().sort();
+// }
+// let arr = ['HTML', 'JavaScript', 'CSS'];
+// let sorted = copySorted(arr);
+// alert(sorted);
+// alert(arr);
