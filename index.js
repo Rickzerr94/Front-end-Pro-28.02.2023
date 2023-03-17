@@ -16,12 +16,29 @@ console.log(positiveNumber.length);
 let minValue = arr [0];
 for(let i = 0; i < arr.length; i++){
     if(arr[i] <= minValue){
-        minValue = arr[0]
+        minValue = arr[i]
     };
 };
 console.log(minValue);
 
+////
 
+let maxValue = arr [0];
+for(let i = 0; i < arr.length; i++){
+    if(arr[i] >= maxValue){
+        maxValue = arr[i]
+    };
+};
+console.log(maxValue);
+
+////
+
+let negativeNumber = arr.filter(function (number){
+    return number < 0
+});
+console.log(negativeNumber.length);
+
+////
 
 
 
