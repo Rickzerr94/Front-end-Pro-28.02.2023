@@ -75,12 +75,32 @@ console.log(notEvenNumberSum);
 
 ////
 
-let productNumber = 0;
+let productNumber = 1;
 for(let i = 0; i < arr.length; i++){
     if(arr[i] > 0)
         productNumber *= arr[i];
 };
 console.log(productNumber);
+
+////
+
+// let maxNumber = arr[0];
+// for(let i = 0; i < arr.length; i++){
+//     if(arr[i] > maxNumber){
+//         maxNumber = arr[i];
+//     }else{
+//         arr[i] = 0;
+//     }
+// }
+// console.log(maxNumber);
+// console.log(arr);
+
+const maxNumber = Math.max(...arr);
+const newArr = arr.map((val) => (val === maxNumber ? maxNumber : 0));
+
+console.log(maxNumber);
+console.log(newArr);
+
 
 
 
