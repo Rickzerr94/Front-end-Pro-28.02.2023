@@ -1,277 +1,57 @@
-let arr = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let users = [
+    {
+        "index": 0,
+        "isActive": true,
+        "balance": "$2,226.60",
+        "name": "Eugenia Sawyer",
+        "gender": "female",
+        "phone": "+1 (840) 583-3207",
+        "address": "949 John Street, Rose, Puerto Rico, 1857"
+    },
+    {
+        "index": 1,
+        "isActive": true,
+        "balance": "$2,613.77",
+        "name": "Pauline Gallegos",
+        "gender": "female",
+        "phone": "+1 (985) 593-3328",
+        "address": "328 Greenpoint Avenue, Torboy, North Dakota, 6857"
+    },
+    {
+        "index": 2,
+        "isActive": false,
+        "balance": "$3,976.41",
+        "name": "Middleton Chaney",
+        "gender": "male",
+        "phone": "+1 (995) 591-2478",
+        "address": "807 Fleet Walk, Brutus, Arkansas, 9783"
+    },
+    {
+        "index": 3,
+        "isActive": true,
+        "balance": "$1,934.58",
+        "name": "Burns Poole",
+        "gender": "male",
+        "phone": "+1 (885) 559-3422",
+        "address": "730 Seba Avenue, Osage, Alabama, 6290"
+    },
+    {
+        "index": 4,
+        "isActive": true,
+        "balance": "$3,261.65",
+        "name": "Mcfadden Horne",
+        "gender": "male",
+        "phone": "+1 (942) 565-3988",
+        "address": "120 Scholes Street, Kirk, Michigan, 1018"
+    },
+    {
+        "index": 5,
+        "isActive": false,
+        "balance": "$1,790.56",
+        "name": "Suzette Lewis",
+        "gender": "female",
+        "phone": "+1 (837) 586-3283",
+        "address": "314 Dunne Place, Bawcomville, Guam, 9053"
+    }
+];
 
-let sum = 0;
-for(let i = 0; i < arr.length; i++){
-    if(arr[i] > 0)
-    sum += arr[i];
-}
-console.log(sum);
-const positiveNumber = arr.filter(function (number){
-    return number > 0
-});
-console.log (positiveNumber);
-console.log(positiveNumber.length);
-
-////
-
-// let minValue = arr [0];
-// for(let i = 0; i < arr.length; i++){
-//     if(arr[i] <= minValue){
-//         minValue = arr[i]
-//     };
-// };
-// console.log(minValue); //old version
-
-const minValue = Math.min(...arr);
-console.log(minValue);
-const minIndex = arr.indexOf(minValue);
-console.log(minIndex);
-
-////
-
-// let maxValue = arr [0];
-// for(let i = 0; i < arr.length; i++){
-//     if(arr[i] >= maxValue){
-//         maxValue = arr[i]
-//     };
-// };
-// console.log(maxValue); //old version
-
-const maxValue = Math.max(...arr);
-console.log(maxValue);
-const maxIndex = arr.indexOf(maxValue);
-console.log(maxIndex);
-
-////
-
-const negativeNumber = arr.filter(function (number){
-    return number < 0
-});
-console.log(negativeNumber.length);
-
-////
-
-const notEvenNumber = arr.filter(function (number){
-    return number > 0 && number % 2 !== 0
-});
-// console.log(notEvenNumber);
-console.log(notEvenNumber.length);
-
-////
-
-const evenNumber = arr.filter(function (number){
-    return number > 0 && number % 2 === 0
-});
-// console.log(evenNumber);
-console.log(evenNumber.length);
-
-////
-
-let evenNumberSum = 0;
-for(let i = 0; i < arr.length; i++){
-    if(arr[i] > 0 && arr[i] % 2 === 0)
-    evenNumberSum += arr[i];
-};
-console.log(evenNumberSum);
-
-////
-
-let notEvenNumberSum = 0;
-for(let i = 0; i < arr.length; i++){
-    if(arr[i] > 0 && arr[i] % 2 !== 0)
-        notEvenNumberSum += arr[i];
-};
-console.log(notEvenNumberSum);
-
-////
-
-let productNumber = 1;
-for(let i = 0; i < arr.length; i++){
-    if(arr[i] > 0)
-        productNumber *= arr[i];
-};
-console.log(productNumber);
-
-////
-
-// let maxNumber = arr[0];
-// for(let i = 0; i < arr.length; i++){
-//     if(arr[i] > maxNumber){
-//         maxNumber = arr[i];
-//     }else{
-//         arr[i] = 0;
-//     }
-// }
-// console.log(maxNumber);
-// console.log(arr); //old version
-
-const maxNumber = Math.max(...arr);
-const newArr = arr.map((val) => (val === maxNumber ? maxNumber : 0));
-
-console.log(maxNumber);
-console.log(newArr);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let fruits = ['apples','pear','banana'];
-// let shoppingCart = fruits;
-// shoppingCart.push('oranges');
-// console.log(fruits);
-//
-// let styles = ['jazz','blues'];
-// alert(styles);
-// let addStyle = styles;
-// addStyle.push('rock-n-roll');
-// alert(addStyle);
-// let addStyleClassic = styles;
-// addStyleClassic[Math.floor((styles.length - 1) / 2)] = 'classic';
-// alert(addStyleClassic);
-// let shiftStyle = styles;
-// shiftStyle.shift();
-// alert(shiftStyle);
-// let unShiftStyle = styles;
-// unShiftStyle.unshift('rap', 'reggae');
-// alert(unShiftStyle);
-
-// let arr = ['a', 'b'];
-// arr.push(function () {
-//     alert(this);
-// });
-//
-// arr[2]();
-
-// function sumInput(){
-//     let numbers = [];
-//     while(true){
-//         let value = prompt('Enter the number');
-//         if(value === '' || value === null || !isFinite(value)) break;
-//         numbers.push(parseInt(value));
-//     };
-//     let sum = 0;
-//     for(let number of numbers){
-//         sum += number;
-//     };
-//     return sum;
-// };
-// alert( sumInput());
-
-
-// let arr = [1,2];
-//
-// let arrLike = {
-//     0: 'something',
-//     length:1
-// };
-// alert(arr.concat(arrLike));
-
-// let arr = [1,2];
-//
-// let arrLike = {
-//     0: 'something',
-//     1: 'else',
-//     [Symbol.isConcatSpreadable]: true,
-//     length:2
-// };
-// alert(arr.concat(arrLike));
-
-// let users = [
-//     {id: 1, name: "John"},
-//     {id: 2, name: "Pete"},
-//     {id: 3, name: "Mary"}
-// ];
-//
-// let user = users.find(item => item.id === 3);
-//
-// alert(user.name);
-
-// let lengths = ["Bilbo", "Nazgul", "Gandalf"].map(item => item.length);
-// alert(lengths);
-
-// function compareNumeric(a, b) {
-//     if (a > b) return 1;
-//     if (a == b) return 0;
-//     if (a < b) return -1;
-// }
-//
-// let arr = [ 3, 1, 15 ];
-//
-// arr.sort(compareNumeric);
-//
-// alert(arr);
-
-// let countries = ['Österreich', 'Andorra', 'Vietnam'];
-//
-// // alert( countries.sort( (a, b) => a > b ? 1 : -1) );
-//
-// alert( countries.sort( (a, b) => b.localeCompare(a) ) );
-
-// let names = 'Вася, Петя, Маша';
-//
-// let arr = names.split(', ');
-//
-// for (let name of arr) {
-//     alert( `A message to ${name}.` );
-// }
-
-// let arr = 'Вася, Петя, Маша, Іван'.split(', ', 3);
-//
-// alert(arr);
-
-// function camelize(str){
-//     return str
-//         .split('-')
-//         .map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1))
-//         .join('');
-//
-// }
-
-// function filterRange (arr, a, b){
-//     return arr.filter(item => (a <= item && item <= b));
-// }
-// let arr = [5,3,8,1];
-// let filtered = filterRange(arr, 1, 4);
-// alert(filtered);
-// alert(arr);
-
-// let arr = [5,1,2,-10,8];
-// arr.sort((a, b) => b - a);
-// alert(arr);
-
-// function copySorted(arr){
-//     return arr.slice().sort();
-// }
-// let arr = ['HTML', 'JavaScript', 'CSS'];
-// let sorted = copySorted(arr);
-// alert(sorted);
-// alert(arr);
