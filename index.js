@@ -55,3 +55,14 @@ let users = [
     }
 ];
 
+const phoneNumbers = users.filter(user => parseFloat(user.balance.replace(/[$,]/g, '')) > 2000).map(user => user.phone);
+console.log(phoneNumbers);
+
+let sumBalances = 0;
+for(let i = 0; i < users.length; i++){
+    let value = users[i].balance.replace(/[$,]/g, '');
+    sumBalances += parseFloat(value);
+}
+console.log(sumBalances);
+
+
