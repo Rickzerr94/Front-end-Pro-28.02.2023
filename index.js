@@ -1,69 +1,127 @@
-let users = [
-    {
-        "index": 0,
-        "isActive": true,
-        "balance": "$2,226.60",
-        "name": "Eugenia Sawyer",
-        "gender": "female",
-        "phone": "+1 (840) 583-3207",
-        "address": "949 John Street, Rose, Puerto Rico, 1857"
-    },
-    {
-        "index": 1,
-        "isActive": true,
-        "balance": "$2,613.77",
-        "name": "Pauline Gallegos",
-        "gender": "female",
-        "phone": "+1 (985) 593-3328",
-        "address": "328 Greenpoint Avenue, Torboy, North Dakota, 6857"
-    },
-    {
-        "index": 2,
-        "isActive": false,
-        "balance": "$3,976.41",
-        "name": "Middleton Chaney",
-        "gender": "male",
-        "phone": "+1 (995) 591-2478",
-        "address": "807 Fleet Walk, Brutus, Arkansas, 9783"
-    },
-    {
-        "index": 3,
-        "isActive": true,
-        "balance": "$1,934.58",
-        "name": "Burns Poole",
-        "gender": "male",
-        "phone": "+1 (885) 559-3422",
-        "address": "730 Seba Avenue, Osage, Alabama, 6290"
-    },
-    {
-        "index": 4,
-        "isActive": true,
-        "balance": "$3,261.65",
-        "name": "Mcfadden Horne",
-        "gender": "male",
-        "phone": "+1 (942) 565-3988",
-        "address": "120 Scholes Street, Kirk, Michigan, 1018"
-    },
-    {
-        "index": 5,
-        "isActive": false,
-        "balance": "$1,790.56",
-        "name": "Suzette Lewis",
-        "gender": "female",
-        "phone": "+1 (837) 586-3283",
-        "address": "314 Dunne Place, Bawcomville, Guam, 9053"
+const array = [1, 2, 3, 4, 5, 6, 7];
+
+function removeElement(array, item){
+    const index = array.indexOf(item);
+    if(index > -1){
+        array.splice(index, 1);
     }
-];
-
-const phoneNumbers = users.filter(user => parseFloat(user.balance.replace(/[$,]/g, '')) > 2000).map(user => user.phone);
-console.log(phoneNumbers);
-
-let sumBalances = 0;
-for(let i = 0; i < users.length; i++){
-    let value = users[i].balance.replace(/[$,]/g, '');
-    sumBalances += parseFloat(value);
 }
-console.log(sumBalances);
+removeElement(array, 5);
+console.log(array);
 
+////
+
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+function generateKey(length, characters){
+    let result = '';
+    const  charactersLength = characters.length;
+    for(let i = 0; i < length; i++){
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+const key = generateKey(16, characters);
+console.log(key);
+
+////
+
+function removeChars(inputString = "hello world", charsToRemove = ['l', 'd']){
+    let outputString = '';
+    for(let i = 0; i < inputString.length; i++){
+        let char = inputString[i];
+        if(!charsToRemove.includes(char)){
+            outputString += char;
+        }
+    }
+    return outputString;
+}
+console.log(removeChars());
+
+////
+
+function counterCreator(){
+    let value = 0;
+    function sumOfCounter(num){
+        return (value += num);
+    }
+    return sumOfCounter;
+}
+
+const counter = counterCreator()
+console.log(counter(3));
+console.log(counter(5));
+console.log(counter(20));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function checkAge(age) {
+//     return age > 18 ? true : confirm('Батьки дозволили?');
+    // if (age > 18) {
+    //     return true;
+    // } else {
+    //     return confirm('Батьки дозволили?');
+    // }
+// }
+
+// function min(a, b){
+//     return a < b ? a : b;
+// }
+// console.log(min(3, -1));
+
+// function pow(x, n){
+//     let result = x;
+//     for(let i = 1; i < n; i++){
+//         result *= x;
+//     }
+//     return result;
+// }
+// let x = prompt('x?');
+// let n = prompt('n?');
+//
+// if(n < 1){
+//     alert(`number ${n} is incorrect, use prime number`);
+// }else{
+//     alert(pow(x, n));
+// }
+
+// let ask = (question, yes, no) => confirm(question) ? yes() : no();
+// ask('Are you agree?', () => alert('You agree'), () => alert('You canceled'));
 
 
