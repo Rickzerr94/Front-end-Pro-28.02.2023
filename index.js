@@ -88,7 +88,6 @@ console.log(counter(20));
 
 
 
-
 // function checkAge(age) {
 //     return age > 18 ? true : confirm('Батьки дозволили?');
     // if (age > 18) {
