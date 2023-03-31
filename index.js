@@ -1,6 +1,6 @@
 const arr = [[[[[[8]]]]]];
 
-//this variant which i'l googled
+//this variant which il googled
 
 // function factorialArray(arr){
 //     if(typeof arr === 'number'){
