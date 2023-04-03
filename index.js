@@ -1,58 +1,68 @@
-const array = [1, 2, 3, 4, 5, 6, 7];
+const arr = [1,2,3,4,5,1,2,3,4,5]
 
-function removeElement(array, item){
-    const index = array.indexOf(item);
-    if(index > -1){
-        array.splice(index, 1);
-    }
-}
-removeElement(array, 5);
-console.log(array);
+const yourFunc = (arr) => {
+    return Array.from(new Set(arr));
+};
+
+yourFunc(arr);
 
 ////
 
-const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+function mostFrequent(arr) {
+    let count = {};
 
-function generateKey(length, characters){
-    let result = '';
-    const  charactersLength = characters.length;
-    for(let i = 0; i < length; i++){
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-}
-
-const key = generateKey(16, characters);
-console.log(key);
-
-////
-
-function removeChars(inputString = "hello world", charsToRemove = ['l', 'd']){
-    let outputString = '';
-    for(let i = 0; i < inputString.length; i++){
-        let char = inputString[i];
-        if(!charsToRemove.includes(char)){
-            outputString += char;
+    for (let i = 0; i < arr.length; i++) {
+        let elem = arr[i];
+        if (elem in count) {
+            count[elem]++;
+        } else {
+            count[elem] = 1;
         }
     }
-    return outputString;
+
+    let maxCount = 0;
+    let mostCommon;
+    for (let elem in count) {
+        if (count[elem] > maxCount) {
+            maxCount = count[elem];
+            mostCommon = elem;
+        }
+    }
+
+    return mostCommon;
 }
-console.log(removeChars());
+
+console.log(mostFrequent(arr))
 
 ////
 
-function counterCreator(){
-    let value = 0;
-    function sumOfCounter(num){
-        return (value += num);
-    }
-    return sumOfCounter;
+//Буде undefined, бо останній рядок викличе функцію z з аргументом x яка є сама функція без параметрів яка ж повертає
+//значення змінної y
+//через те що в подальшому викликаєтся аргумент t, котрий сам є функцією без параметрів, то на цбому ланцюжок завершиться і нічого
+//не виведеться, а це значить що буде undefined
+
+////
+
+function debounce(f, ms) {
+    let isCooldown = false;
+
+    return function () {
+        if (isCooldown) return;
+        f.apply(this, arguments);
+        isCooldown = true;
+
+        setTimeout(() => isCooldown = false, ms);
+    };
 }
 
-const counter = counterCreator()
-console.log(counter(3));
-console.log(counter(5));
-console.log(counter(20));
+let f = debounce(alert, 1000)
+
+f(1);
+f(2);
+
+setTimeout(() => f(3), 100);
+setTimeout(() => f(4), 1100);
+setTimeout(() => f(5), 1500);
 
 
 
@@ -77,48 +87,54 @@ console.log(counter(20));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// function checkAge(age) {
-//     return age > 18 ? true : confirm('Батьки дозволили?');
-    // if (age > 18) {
-    //     return true;
-    // } else {
-    //     return confirm('Батьки дозволили?');
-    // }
+// function unique(arr) {
+//     return Array.from(new Set(arr));
 // }
-
-// function min(a, b){
-//     return a < b ? a : b;
-// }
-// console.log(min(3, -1));
-
-// function pow(x, n){
-//     let result = x;
-//     for(let i = 1; i < n; i++){
-//         result *= x;
-//     }
-//     return result;
-// }
-// let x = prompt('x?');
-// let n = prompt('n?');
 //
-// if(n < 1){
-//     alert(`number ${n} is incorrect, use prime number`);
-// }else{
-//     alert(pow(x, n));
+// let values = ["Hare", "Krishna", "Hare", "Krishna",
+//     "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
+//
+// alert( unique(values) );
+
+// function Accumulator(startingValue) {
+//     this.value = startingValue;
+//
+//     this.read = function () {
+//         this.value += parseInt(prompt('how to count?'));
+//     }
 // }
+//
+// let accumulator = new Accumulator(1);
+// accumulator.read();
+// accumulator.read();
+//
+// alert(accumulator.value);
 
-// let ask = (question, yes, no) => confirm(question) ? yes() : no();
-// ask('Are you agree?', () => alert('You agree'), () => alert('You canceled'));
+// function printNumbers(from, to){
+//     let current = from;
+//
+//     let timerId = setInterval(function () {
+//         alert(current);
+//         if(current === to) {
+//             clearInterval(timerId);
+//         }
+//         current++;
+//     }, 1000);
+// }
+//
+// printNumbers(5, 12);
 
-
+// function printNumbers(from, to) {
+//     let current = from;
+//
+//     setTimeout(function go() {
+//         alert(current);
+//         if(current < to) {
+//             setTimeout(go, 1000)
+//         }
+//         current++
+//     }, 1000)
+// }
+//
+// printNumbers(5, 11);
