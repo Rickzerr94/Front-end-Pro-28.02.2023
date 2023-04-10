@@ -23,46 +23,23 @@ console.log(solution([2, 2, 44, 44]));
 
 ////
 
-// function ezjQuery(tag) {
-//     let htmlString = `<${tag}></${tag}>`;
-//
-//     function add(tag, text = '') {
-//         htmlString = htmlString.replace(`</${tag}>`, `<${tag}>${text}</${tag}>`);
-//         return this;
-//     }
-//
-//     function render() {
-//         return htmlString;
-//     }
-//
-//     return { add, render };
-// }
+function ezjQuery(tag) {
+    let htmlString = `<${tag}></${tag}>`;
 
-function ezjQuery(selector) {
-    let elements = [document.querySelector(selector)];
-    const createElement = (tag, content) => {
-        const element = document.createElement(tag);
-        element.innerHTML = content || '';
-        return element;
-    };
-    return {
-        add(tag, content) {
-            const newElements = [];
-            elements.forEach((element) => {
-                const newElement = createElement(tag, content);
-                element.appendChild(newElement);
-                newElements.push(newElement);
-            });
-            elements = newElements;
-            return this;
-        },
-        render() {
-            const html = elements[0].outerHTML;
-            elements = [elements[0].cloneNode(true)];
-            return html;
-        },
-    };
+    function add(tagName, text = '') {
+        const newHtmlString = `<${tagName}>${text}</${tagName}>`
+        htmlString = htmlString.replace(`</${tag}>`, `${newHtmlString}</${tag}>`);
+        return this;
+    }
+
+    function render() {
+        return htmlString;
+    }
+
+    return { add, render };
 }
+
+
 
 let helloList = ezjQuery('body')
     .add('div')
