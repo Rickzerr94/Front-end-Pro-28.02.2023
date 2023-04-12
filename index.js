@@ -24,16 +24,20 @@ console.log(solution([2, 2, 44, 44]));
 ////
 
 function ezjQuery(tag) {
-    let htmlString = `<${tag}></${tag}>`;
+    let htmlString = [{tag, content: ''}];
 
     function add(tagName, text = '') {
-        const newHtmlString = `<${tagName}>${text}</${tagName}>`
-        htmlString = htmlString.replace(`</${tag}>`, `${newHtmlString}</${tag}>`);
+        htmlString.push({tag: tagName, content: text});
         return this;
     }
 
     function render() {
-        return htmlString;
+        let result = '';
+        htmlString.reverse().forEach(({tag, content}) => {
+            result = `<${tag}>${content}${result}</${tag}>`;
+        });
+        htmlString = [{tag, content: ''}];
+        return result;
     }
 
     return { add, render };
