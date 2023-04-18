@@ -58,3 +58,49 @@ let bodyDiv = ezjQuery('body')
     .render();
 
 console.log(bodyDiv)
+
+
+// class Counter {
+//     #count
+//     constructor(counter) {
+//         this.countElement = counter.querySelector('span')
+//         this.buttonElement = counter.querySelector('button')
+//
+//         this.#count = parseInt(this.countElement.textContent)
+//
+//         this.buttonElement.addEventListener('click', this.increaseCount)
+//     }
+//
+//     increaseCount = () => {
+//         this.#count = this.#count + 1
+//         this.updateCount()
+//     }
+//
+//     updateCount () {
+//         this.countElement.textContent = this.#count
+//     }
+// }
+//
+// const counter = new Counter(document.querySelector('.counter'));
+
+// function Counter (counterElement) {
+//     const countElement = counterElement.querySelector('span')
+//     const buttonElement = counterElement.querySelector('button')
+//
+//     let count = parseInt(countElement.textContent)
+//
+//     const counter = {
+//         increaseCount () {
+//             count = count + 1
+//             counter.updateCount()
+//         },
+//
+//         updateCount() {
+//             countElement.textContent = count
+//         }
+//     }
+//
+//     buttonElement.addEventListener('click', counter.increaseCount)
+// }
+//
+// const counter = Counter(document.querySelector('.counter'))
