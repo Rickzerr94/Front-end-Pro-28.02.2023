@@ -1,106 +1,75 @@
-function  solution(arr) {
-    const freq = {};
+const strs = ["programming", "product", "procrastination"];
 
-    for (let num of arr) {
-        freq [num] = (freq[num] || 0) +1;
+function findPrefix(strs) {
+    if (!strs || strs.length === 0) {
+        return '';
     }
 
-    const result = [];
+    const firstStr = strs[0];
+    let prefix = '';
 
-    for (let key in freq) {
-        if (freq[key] % 2 !== 0) {
-            result.push(parseInt(key));
+    for (let i = 0; i < firstStr.length; i++){
+        const char = firstStr[i];
+
+        for (let j = 1; j < strs.length; j++) {
+            if (i >= strs[j].length || strs[j][i] !== char) {
+                return prefix
+            }
         }
+
+        prefix += char;
     }
-    return result;
+
+    return prefix;
 }
 
-console.log(solution([12, 23, 34, 12, 12, 23, 12, 45]));
-console.log(solution([4, 4, 100, 5000, 4, 4, 4, 4, 4, 100, 100]));
-console.log(solution([3, 3, 4, 6, 5, 4, 9, 9, 21, 9]));
-console.log(solution([4, 8, 15, 16, 23, 42, 4, 15, 42, 42]));
-console.log(solution([2, 2, 44, 44]));
+const prefix = findPrefix(strs);
+console.log(prefix);
 
 ////
 
-function ezjQuery(tag) {
-    let htmlString = [{tag, content: ''}];
+function twoDimToThreeDim(arr) {
+    let result = [];
+    let tempArr = [];
 
-    function add(tagName, text = '') {
-        htmlString.push({tag: tagName, content: text});
-        return this;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (tempArr.length < 3) {
+                tempArr.push(arr[i][j]);
+            } else {
+                result.push(tempArr);
+                tempArr = [arr[i][j]];
+            }
+        }
     }
 
-    function render() {
-        let result = '';
-        htmlString.reverse().forEach(({tag, content}) => {
-            result = `<${tag}>${content}${result}</${tag}>`;
-        });
-        htmlString = [{tag, content: ''}];
-        return result;
+    if (tempArr.length > 0) {
+        result.push(tempArr);
     }
 
-    return { add, render };
+    return result;
 }
 
+let arr1 = [[1,2], [3,4], [5,6]];
+let result1 = twoDimToThreeDim(arr1);
+console.log(result1);
+
+let arr2 = [[1,2], [3,4], [5,6], [7]];
+let result2 = twoDimToThreeDim(arr2);
+console.log(result2);
 
 
-let helloList = ezjQuery('body')
-    .add('div')
-    .add('ul')
-    .add('li', 'Hello')
-    .render();
 
-console.log(helloList);
+function threeDimToTwoDim(arr) {
+    return arr[0].map((_, index) => {
+        return arr.reduce((tempArr, subArr) => {
+            tempArr.push(subArr[index]);
+            return tempArr;
+        }, []);
+    });
+}
 
-let bodyDiv = ezjQuery('body')
-    .add('div')
-    .render();
+let arr3 = [[1,2,3], [4,5,6]];
+let result3 = threeDimToTwoDim(arr3);
+console.log(result3);
 
-console.log(bodyDiv)
-
-
-// class Counter {
-//     #count
-//     constructor(counter) {
-//         this.countElement = counter.querySelector('span')
-//         this.buttonElement = counter.querySelector('button')
-//
-//         this.#count = parseInt(this.countElement.textContent)
-//
-//         this.buttonElement.addEventListener('click', this.increaseCount)
-//     }
-//
-//     increaseCount = () => {
-//         this.#count = this.#count + 1
-//         this.updateCount()
-//     }
-//
-//     updateCount () {
-//         this.countElement.textContent = this.#count
-//     }
-// }
-//
-// const counter = new Counter(document.querySelector('.counter'));
-
-// function Counter (counterElement) {
-//     const countElement = counterElement.querySelector('span')
-//     const buttonElement = counterElement.querySelector('button')
-//
-//     let count = parseInt(countElement.textContent)
-//
-//     const counter = {
-//         increaseCount () {
-//             count = count + 1
-//             counter.updateCount()
-//         },
-//
-//         updateCount() {
-//             countElement.textContent = count
-//         }
-//     }
-//
-//     buttonElement.addEventListener('click', counter.increaseCount)
-// }
-//
-// const counter = Counter(document.querySelector('.counter'))
