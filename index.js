@@ -60,16 +60,10 @@ console.log(result2);
 
 
 
-function threeDimToTwoDim(arr) {
-    return arr[0].map((_, index) => {
-        return arr.reduce((tempArr, subArr) => {
-            tempArr.push(subArr[index]);
-            return tempArr;
-        }, []);
-    });
-}
-
-let arr3 = [[1,2,3], [4,5,6]];
-let result3 = threeDimToTwoDim(arr3);
+const arr3 = [[1, 2, 3], [4, 5, 6]];
+const flatArr = arr3.reduce((acc, val) => acc.concat(val), []);
+const result3 = [flatArr.slice(0, 2), flatArr.slice(2, 4), flatArr.slice(4)];
 console.log(result3);
+
+
 
