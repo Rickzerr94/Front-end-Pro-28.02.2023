@@ -67,3 +67,28 @@ console.log(result3);
 
 
 
+
+function convertArray(arr, length) {
+    let result = [];
+    let temp = [];
+
+    arr.forEach(subArr => {
+        subArr.forEach(element => {
+            if (temp.length === length) {
+                result.push(temp);
+                temp = [];
+            }
+            temp.push(element);
+        });
+    });
+
+    if (temp.length > 0) {
+        result.push(temp);
+    }
+
+    return result;
+}
+
+const arr = [[1,2,3], [4,5,6]];
+console.log(convertArray(arr, 5));
+
