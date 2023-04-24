@@ -1,117 +1,38 @@
-class Student {
-    constructor(firstName, lastName, year) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.year = year;
-        this.grades = [];
-        this.attendance = new Array(25).fill(undefined);
+class Hamburger {
+    static SIZE_SMALL = {price: 50, calories: 20};
+    static SIZE_BIG = {price: 100, calories: 40};
+    static STUFFING_CHEESE = {price: 10, calories: 20};
+    static STUFFING_SALAD = {price: 20, calories: 5};
+    static STUFFING_POTATO = {price: 15, calories: 10};
+    static TOPPING_MAYO = {price: 20, calories: 5};
+    static TOPPING_SPICE = {price: 15, calories: 0};
+
+    constructor(size, stuffing) {
+        this.size = size;
+        this.stuffing = stuffing;
+        this.toppings = [];
     }
 
-    getAge() {
-        const currentYear = new Date().getFullYear();
-        return currentYear - this.year;
+    addTopping(topping) {
+        this.toppings.push(topping);
     }
 
-    addGrade(grade) {
-        if (grade >= 0 && grade <= 100) {
-            this.grades.push(grade);
-        } else {
-            console.log("Оцінка повинна бути від 0 до 100");
-        }
+    calculatePrice() {
+        const toppingsPrice = this.toppings.reduce((acc, topping) => acc + topping.price, 0);
+        return this.size.price + this.stuffing.price + toppingsPrice;
     }
 
-    getAverageGrade() {
-        const sum = this.grades.reduce((acc, val) => acc + val, 0);
-        return sum / this.grades.length || 0;
-    }
-
-    present() {
-        const index = this.attendance.indexOf(undefined);
-        if (index !== -1) {
-            this.attendance[index] = true;
-        } else {
-            console.log("Не можна відвідати більше 25 занять");
-        }
-    }
-
-    absent() {
-        const index = this.attendance.indexOf(undefined);
-        if (index !== -1) {
-            this.attendance[index] = false;
-        } else {
-            console.log("Не можна пропустити більше 25 занять");
-        }
-    }
-
-    getAttendance() {
-        const presentCount = this.attendance.filter(a => a === true).length;
-        const absentCount = this.attendance.filter(a => a === false).length;
-        const totalClasses = presentCount + absentCount;
-        const attendanceRate = totalClasses > 0 ? presentCount / totalClasses : 0;
-        return {
-            presentCount,
-            absentCount,
-            totalClasses,
-            attendanceRate
-        };
-    }
-
-    summary() {
-        const averageGrade = this.getAverageGrade();
-        const attendanceRate = this.getAttendance().attendanceRate;
-        if (averageGrade > 90 && attendanceRate > 0.9) {
-            return "Молодець!";
-        } else if (averageGrade > 0 && attendanceRate > 0) {
-            return "Добре, але можна краще";
-        } else {
-            return "Редиска!";
-        }
+    calculateCalories() {
+        const toppingsCalories = this.toppings.reduce((acc, topping) => acc + topping.calories, 0);
+        return this.size.calories + this.stuffing.calories + toppingsCalories;
     }
 }
 
-const student1 = new Student("Іван", "Іванов", 2000);
-const student2 = new Student("Марія", "Петрова", 2001);
+const hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
+hamburger.addTopping(Hamburger.TOPPING_MAYO);
 
-console.log(student1.getAge());
-console.log(student2.getAge());
+console.log("Calories: " + hamburger.calculateCalories());
+console.log("Price: " + hamburger.calculatePrice());
 
-student1.addGrade(80);
-student1.addGrade(90);
-student1.addGrade(95);
-student2.addGrade(70);
-student2.addGrade(85);
-student2.addGrade(110);
-
-student1.present();
-student1.present();
-student1.present();
-student1.absent();
-student1.present();
-student1.present();
-student1.present();
-student1.absent();
-student1.present();
-student1.present();
-student1.present();
-student1.absent();
-student1.present();
-student1.present();
-student1.present();
-student1.absent();
-student1.present();
-student1.present();
-student1.present();
-student1.absent();
-student1.present();
-student1.present();
-student1.present();
-student1.absent();
-student1.present();
-student1.present();
-
-
-console.log(student1.getAverageGrade());
-console.log(student2.getAverageGrade());
-
-console.log(student1.getAttendance());
-console.log(student2.getAttendance());
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
+console.log("Price with sauce: " + hamburger.calculatePrice());
