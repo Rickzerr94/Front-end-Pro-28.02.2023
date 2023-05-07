@@ -1,4 +1,11 @@
-import { sum } from './sum.js'
+const myInput = document.getElementById('myInput');
+const ghostDiv = document.createElement('div');
+ghostDiv.innerText = 'Ghost div';
 
-const result = sum(3, 5);
-console.log(result)
+myInput.addEventListener('focus', () => {
+    document.body.appendChild(ghostDiv);
+});
+
+myInput.addEventListener('blur', () => {
+    document.body.removeChild(ghostDiv);
+});
