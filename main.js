@@ -1,11 +1,11 @@
-const myInput = document.getElementById('myInput');
-const ghostDiv = document.createElement('div');
-ghostDiv.innerText = 'Ghost div';
+const emojis = document.querySelectorAll('.option');
 
-myInput.addEventListener('focus', () => {
-    document.body.appendChild(ghostDiv);
-});
+function handleClick(event) {
+    const emoji = event.currentTarget;
+    const count = emoji.querySelector('.count');
+    count.textContent = parseInt(count.textContent) + 1;
+}
 
-myInput.addEventListener('blur', () => {
-    document.body.removeChild(ghostDiv);
+emojis.forEach((emoji) => {
+    emoji.addEventListener('click', handleClick);
 });
