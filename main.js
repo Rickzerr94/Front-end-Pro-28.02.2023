@@ -1,11 +1,23 @@
-const emojis = document.querySelectorAll('.option');
 
-function handleClick(event) {
-    const emoji = event.currentTarget;
-    const count = emoji.querySelector('.count');
-    count.textContent = parseInt(count.textContent) + 1;
-}
+const categories = document.querySelectorAll('.category');
+const subcategories = document.querySelectorAll('.subcategory');
+const categorylist = document.querySelectorAll('.stufflist');
 
-emojis.forEach((emoji) => {
-    emoji.addEventListener('click', handleClick);
+
+categories.forEach((category, index) => {
+    category.addEventListener('click', () => {
+        subcategories.forEach((subcategory) => {
+            subcategory.classList.add('hidden');
+        });
+        subcategories[index].classList.remove('hidden');
+    });
+});
+
+subcategories.forEach((subcategory, index) => {
+    subcategory.addEventListener('click', () => {
+        categorylist.forEach((stufflist) => {
+            stufflist.classList.add('hidden');
+        });
+        categorylist[index].classList.remove('hidden');
+    });
 });
