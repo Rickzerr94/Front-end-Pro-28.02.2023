@@ -10,6 +10,51 @@
 
 </head>
 <body>
+
+<div id="modal" class="modal" style="display: none;">
+    <span id="modalClose" class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Замовлення</h2>
+    <form class="modal-form">
+        <label for="name">ПІБ покупця:</label>
+        <input type="text" id="name" required>
+
+        <label for="city">Місто:</label>
+        <select id="city" required>
+            <option value="">Оберіть місто</option>
+            <option value="Дніпро">Дніпро</option>
+            <option value="Кам'янське">Кам'янське</option>
+            <option value="Київ">Київ</option>
+            <option value="Львів">Львів</option>
+            <option value="Одеса">Одеса</option>
+        </select>
+
+        <label for="postOffice">Склад Нової пошти:</label>
+        <input type="text" id="postOffice" required>
+
+        <label for="paymentMethod">Спосіб оплати:</label>
+        <select id="paymentMethod" required>
+            <option value="">Оберіть спосіб оплати</option>
+            <option value="Післяплата">Післяплата</option>
+            <option value="Оплата банківською карткою">Оплата банківською карткою</option>
+        </select>
+
+        <label for="quantity">Кількість:</label>
+        <input type="number" id="quantity" required min="1">
+
+        <label for="comment">Коментар:</label>
+        <textarea id="comment"></textarea>
+
+        <button type="submit">Підтвердити замовлення</button>
+    </form>
+</div>
+
+<div id="orderConfirmedModal" class="modal" style="display: none;">
+    <h3>Ваше замовлення підтверджено</h3>
+    <button onclick="closeOrderConfirmedModal()">Закрити</button>
+</div>
+
+<div id="modalBackground" class="modal-background" style="display: none;"></div>
+
 <header>
     <h1>Типу магазин</h1>
 </header>
