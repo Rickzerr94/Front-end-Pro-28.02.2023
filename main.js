@@ -57,11 +57,15 @@ function submitOrder(event) {
         return;
     }
 
+    openOrderConfirmedModal()
+}
+
+function openOrderConfirmedModal() {
     document.getElementById('modal').style.display = 'none';
     document.getElementById('orderConfirmedModal').style.display = 'block';
-    setTimeout(function() {
-        closeOrderConfirmedModal();
-    }, 2000);
+    // setTimeout(function () {
+    //     closeOrderConfirmedModal();
+    // }, 2000);
 }
 
 function closeOrderConfirmedModal() {
