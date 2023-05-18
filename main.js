@@ -2,6 +2,7 @@
 const categories = document.querySelectorAll('.category');
 const subcategories = document.querySelectorAll('.subcategory');
 const categorylist = document.querySelectorAll('.stufflist');
+const  buyButtons = document.querySelectorAll('.buy-button');
 
 
 categories.forEach((category, index) => {
@@ -14,10 +15,19 @@ categories.forEach((category, index) => {
 });
 
 subcategories.forEach((subcategory, index) => {
-    subcategory.addEventListener('click', () => {
-        categorylist.forEach((stufflist) => {
+    subcategory.addEventListener('click', (e) => {
+        const currentIndex = e.target.id.split('_')[1];
+
+        categorylist.forEach((stufflist, i) => {
             stufflist.classList.add('hidden');
         });
-        categorylist[index].classList.remove('hidden');
+        categorylist[currentIndex].classList.remove('hidden');
+    });
+});
+
+buyButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const productName = button.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+        alert(`${productName} придбано`);
     });
 });

@@ -1,5 +1,6 @@
 *{
     padding: 0;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
@@ -9,7 +10,7 @@ body{
 
 header{
     max-width: 1400px;
-    margin: 20px auto;
+    margin: 20px auto 5px;
     background-color: rgb(0, 0, 0);
     border-radius: 30px;
 }
@@ -18,7 +19,7 @@ header{
     display: flex;
     max-width: 1400px;
     min-height: 1000px;
-    margin: 20px auto;
+    margin: 5px auto;
     background-color: rgb(0, 0, 0);
     border-radius: 30px;
 }
@@ -34,7 +35,7 @@ h1{
 }
 
 .categories, .subcategories, .categorylist{
-    max-width: 400px;
+    max-width: 300px;
     width: 100%;
     min-height: 300px;
     height: 100%;
@@ -44,7 +45,7 @@ h1{
     padding: 0 15px;
 }
 .subcategories {
-    max-width: 500px;
+    max-width: 300px;
 }
 
 h3 {
@@ -57,9 +58,9 @@ h3 {
     color: #FFFFFF;
 }
 
-.subcategory{
+.categorylist{
 
-    max-width: 500px;
+    max-width: 800px;
     width: 100%;
 
 }
@@ -87,3 +88,50 @@ li:hover{
     display: none;
 }
 
+.stuffitem{
+    /*display: none;*/
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 20px;
+    background: rgba(129, 129, 139, 0.2);
+    color: white;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.stuffitem img {
+    max-width: 250px;
+    height: 160px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.stuffitem p {
+    margin-top: 10px;
+}
+
+button{
+    margin-top: 40px;
+    margin-left: 30px;
+    font-family: 'Poppins';
+    padding: 20px 50px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    background: rgba(129, 129, 139, 0.2);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+button:hover{
+    background: rgba(61, 150, 244, 1)
+}
+h4{
+    margin-bottom: 20px;
+}
