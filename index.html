@@ -11,6 +11,14 @@
 </head>
 <body>
 
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Корзина</h2>
+        <ul id="cart-items"></ul>
+    </div>
+</div>
+
 <div id="modal" class="modal" style="display: none;">
     <span id="modalClose" class="modal-close" onclick="closeModal()">&times;</span>
     <h2>Замовлення</h2>
@@ -48,7 +56,7 @@
     </form>
 </div>
 
-<div id="orderConfirmedModal" class="modal" style="display: none;">
+<div id="orderConfirmedModal" class="modal2" style="display: none">
     <h3>Ваше замовлення підтверджено</h3>
     <button onclick="closeOrderConfirmedModal()">Закрити</button>
 </div>
@@ -57,6 +65,7 @@
 
 <header>
     <h1>Типу магазин</h1>
+    <button id="orders-button">Корзина</button>
 </header>
 <div class="shop">
     <div class="categories">
