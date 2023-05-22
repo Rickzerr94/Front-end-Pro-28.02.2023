@@ -83,6 +83,7 @@ window.addEventListener('click', (event) => {
 
 // ======new code end========
 
+//======those piece of code for first modal
 
 // buyButtons.forEach(button => {
 //     button.addEventListener('click', function() {
